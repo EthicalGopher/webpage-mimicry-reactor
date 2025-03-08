@@ -1,6 +1,7 @@
 
 import { Search, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 
 const Navbar = () => {
   return (
@@ -32,6 +33,9 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
+          <Button variant="default" className="bg-green-600 hover:bg-green-700">
+            Sign In
+          </Button>
           <button 
             aria-label="Search"
             className="text-white p-1 rounded-full hover:bg-white/10 transition-colors"

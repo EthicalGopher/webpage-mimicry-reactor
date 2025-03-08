@@ -2,6 +2,9 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import ProductGrid from "@/components/ProductGrid";
+import HeroBanner from "@/components/HeroBanner";
+import CategoriesSection from "@/components/CategoriesSection";
+import FeaturedFarmers from "@/components/FeaturedFarmers";
 import { motion } from "framer-motion";
 
 const Index = () => {
@@ -26,10 +29,9 @@ const Index = () => {
         transition={{ duration: 0.5 }}
       >
         <Navbar />
-        
-        <main>
-          <ProductGrid />
-        </main>
+        <HeroBanner />
+        <CategoriesSection />
+        <FeaturedFarmers />
       </motion.div>
     </div>
   );
