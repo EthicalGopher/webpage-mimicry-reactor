@@ -22,7 +22,7 @@ const products = [
   },
   {
     id: 4,
-    name: "Barly",
+    name: "Barley",
     price: "135.00",
     image: "/public/lovable-uploads/barley.png",
   },
@@ -38,6 +38,7 @@ const ProductGrid = () => {
           {products.map((product, index) => (
             <ProductCard
               key={product.id}
+              id={product.id}
               name={product.name}
               price={product.price}
               image={product.image}

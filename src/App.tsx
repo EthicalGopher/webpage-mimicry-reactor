@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ProductDetail from "./pages/ProductDetail";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
