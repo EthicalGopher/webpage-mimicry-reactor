@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 
 interface Product {
   id: number;
@@ -64,6 +65,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const foundProduct = products.find((p) => p.id === Number(id));
@@ -77,6 +79,18 @@ const ProductDetail = () => {
       </div>
     );
   }
+
+  const handleAddToCart = () => {
+    addToCart(
+      {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+      },
+      quantity
+    );
+  };
 
   const renderStars = (rating: number) => {
     return Array(5)
@@ -180,13 +194,16 @@ const ProductDetail = () => {
                     type="number"
                     min="1"
                     value={quantity}
-                    onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
+                    onChange={(e) => setQuantity(parseInt(e.target.value, 10) || 1)}
                     className="w-20 p-2 border border-gray-300 rounded"
                   />
                 </div>
               </div>
 
-              <button className="bg-agri-green text-white py-3 px-6 rounded hover:bg-opacity-90 transition-colors">
+              <button 
+                className="bg-agri-green text-white py-3 px-6 rounded hover:bg-opacity-90 transition-colors"
+                onClick={handleAddToCart}
+              >
                 Add to Cart
               </button>
 
